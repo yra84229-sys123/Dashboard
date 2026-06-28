@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 2. Mobile Sidebar Toggle
     const menuToggle = document.getElementById("menu-toggle");
-    
+
     menuToggle.addEventListener("click", function (e) {
         e.stopPropagation();
         sidebar.classList.toggle("mobile-active");
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 5. Fullscreen Toggle
     const fullscreenBtn = document.getElementById("fullscreen-btn");
-    
+
     if (fullscreenBtn) {
         fullscreenBtn.addEventListener("click", function () {
             if (!document.fullscreenElement) {
@@ -195,7 +195,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (overviewFilter) {
         overviewFilter.addEventListener("change", function () {
             const selectedDays = this.value;
-            
+
             // Randomize chart data based on selected filter to show visual change
             if (window.overviewChartInstance) {
                 let data1 = [];
