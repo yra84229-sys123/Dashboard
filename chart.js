@@ -1,4 +1,4 @@
-// Global chart instances
+
 let overviewChartInstance = null;
 let statusChartInstance = null;
 
@@ -25,7 +25,7 @@ function initOverviewChart() {
 
     // Create gradient fills
     const ctx2D = ctx.getContext('2d');
-    
+
     // Blue Gradient for Pages
     const blueGradient = ctx2D.createLinearGradient(0, 0, 0, 300);
     blueGradient.addColorStop(0, 'rgba(37, 99, 235, 0.25)');
@@ -218,7 +218,7 @@ function updateChartsTheme(isDark) {
         overviewChartInstance.options.scales.y.ticks.color = labelColor;
         overviewChartInstance.options.scales.y.grid.color = gridColor;
         overviewChartInstance.options.plugins.legend.labels.color = labelColor;
-        
+
         // Tooltip updates
         overviewChartInstance.options.plugins.tooltip.backgroundColor = isDark ? '#111827' : '#ffffff';
         overviewChartInstance.options.plugins.tooltip.titleColor = isDark ? '#f8fafc' : '#1e293b';
