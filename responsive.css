@@ -1,0 +1,208 @@
+@media (min-width: 1400px) {
+    .stats-grid {
+        gap: 24px;
+    }
+
+    .main-grid,
+    .bottom-grid {
+        gap: 30px;
+    }
+}
+
+
+@media (max-width: 1200px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .main-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .activity-card {
+        grid-column: span 2;
+    }
+
+    .bottom-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .bottom-grid .bottom-card:last-child {
+        grid-column: span 2;
+    }
+}
+
+/* Tablets (max-width: 992px) */
+@media (max-width: 992px) {
+    :root {
+        --sidebar-width: 260px;
+    }
+
+    /* Hide sidebar by default on tablets and mobile */
+    .sidebar {
+        left: calc(-1 * var(--sidebar-width));
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+    }
+
+    /* When active, show mobile sidebar */
+    .sidebar.mobile-active {
+        left: 0;
+    }
+
+    .main {
+        margin-left: 0 !important;
+    }
+
+    .sidebar.collapsed~.main {
+        margin-left: 0;
+    }
+
+    /* Header adjustments */
+    .header {
+        padding: 0 20px;
+    }
+
+    .welcome-text {
+        display: none;
+        /* Hide subtitle to save space */
+    }
+
+    /* Grid layout updates */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .main-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .overview-card,
+    .status-card,
+    .activity-card {
+        grid-column: span 1;
+    }
+
+    .bottom-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .bottom-grid .bottom-card {
+        grid-column: span 1 !important;
+    }
+
+    /* Overlay background when sidebar is open on mobile */
+    body.sidebar-open::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(4px);
+        z-index: 95;
+        animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+}
+
+/* Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .header-right .search-box {
+        display: none;
+        /* Hide main search bar on mobile, we can toggle it later if needed */
+    }
+
+    /* Show smaller header profile widget */
+    .user-details {
+        display: none;
+    }
+
+    .profile-chevron {
+        display: none;
+    }
+
+    .profile-trigger {
+        padding: 0;
+    }
+
+    .dashboard-body {
+        padding: 20px 15px;
+        gap: 20px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Status Distribution Chart custom layout for mobile */
+    .status-chart-wrapper {
+        padding: 20px 15px;
+    }
+
+    /* Table Responsive wrapping */
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 12px 15px;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+        padding: 15px 20px;
+    }
+}
+
+/* Extra Small Mobile (max-width: 576px) */
+@media (max-width: 576px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 20px;
+    }
+
+    .header-title h2 {
+        font-size: 1.15rem;
+    }
+
+    .header-left {
+        gap: 10px;
+    }
+
+    .header-right {
+        gap: 10px;
+    }
+
+    .icon-btn {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        font-size: 1.05rem;
+    }
+
+    .avatar-wrapper {
+        width: 34px;
+        height: 34px;
+    }
+}

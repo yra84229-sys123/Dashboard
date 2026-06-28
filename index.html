@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Engine Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/responsive.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <div class="logo-icon">
+                        <i class="fa-solid fa-cubes"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h3>Social Engine</h3>
+                        <span>V 1.0</span>
+                    </div>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active" data-tooltip="Dashboard">
+                            <i class="fa-solid fa-house"></i>
+                            <span class="link-name">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="account.html" class="nav-link" data-tooltip="Accounts">
+                            <i class="fa-solid fa-user-gear"></i>
+                            <span class="link-name">Accounts</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="page.html" class="nav-link" data-tooltip="Pages">
+                            <i class="fa-solid fa-file-invoice"></i>
+                            <span class="link-name">Pages</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" data-tooltip="Groups">
+                            <i class="fa-solid fa-users"></i>
+                            <span class="link-name">Groups</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="account admin.html" class="nav-link" data-tooltip="Account Admin">
+                            <i class="fa-solid fa-user-shield"></i>
+                            <span class="link-name">Account Admin</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="securities.html" class="nav-link" data-tooltip="Securities">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span class="link-name">Securities</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="settings.html" class="nav-link" data-tooltip="Settings">
+                            <i class="fa-solid fa-sliders"></i>
+                            <span class="link-name">Settings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="email.html" class="nav-link" data-tooltip="Email">
+                            <i class="fa-solid fa-envelope"></i>
+                            <span class="link-name">Email</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-divider">REPORTS</div>
+
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="activitylog.html" class="nav-link" data-tooltip="Activity Log">
+                            <i class="fa-solid fa-rectangle-list"></i>
+                            <span class="link-name">Activity Log</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="systemlog.html" class="nav-link" data-tooltip="System Log">
+                            <i class="fa-solid fa-clipboard-check"></i>
+                            <span class="link-name">System Log</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="theme-toggle-wrapper">
+                    <span class="theme-label"><i class="fa-solid fa-sun icon-sun"></i> <span>Light Mode</span></span>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-switch" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <button class="collapse-btn" id="collapse-btn">
+                    <i class="fa-solid fa-arrow-left-long"></i>
+                    <span>Collapse Menu</span>
+                </button>
+            </div>
+        </aside>
+
+
+        <main class="main" id="main-content">
+
+            <header class="header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Sidebar">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="header-title">
+                        <h2>Dashboard</h2>
+                        <span class="welcome-text">Welcome back, admin </span>
+                    </div>
+                </div>
+
+                <div class="header-right">
+
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Search here...">
+                        <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </div>
+
+
+                    <div class="notification-container">
+                        <button class="icon-btn" id="notification-btn" aria-label="Notifications">
+                            <i class="fa-regular fa-bell"></i>
+                            <span class="badge">5</span>
+                        </button>
+
+                        <div class="dropdown-menu" id="notification-dropdown">
+                            <div class="dropdown-header">
+                                <h3>Notifications</h3>
+                                <a href="#" class="mark-read">Mark all as read</a>
+                            </div>
+                            <ul class="notification-list">
+                                <li class="notification-item unread">
+                                    <div class="notify-icon notify-blue"><i class="fa-solid fa-file-invoice"></i></div>
+                                    <div class="notify-info">
+                                        <p>New page <strong>"SENG Sport"</strong> added</p>
+                                        <span class="notify-time">2 mins ago</span>
+                                    </div>
+                                </li>
+                                <li class="notification-item unread">
+                                    <div class="notify-icon notify-green"><i class="fa-solid fa-user-pen"></i></div>
+                                    <div class="notify-info">
+                                        <p>Admin <strong>"Dara Thy"</strong> updated a page</p>
+                                        <span class="notify-time">15 mins ago</span>
+                                    </div>
+                                </li>
+                                <li class="notification-item">
+                                    <div class="notify-icon notify-gray"><i
+                                            class="fa-solid fa-arrow-right-to-bracket"></i></div>
+                                    <div class="notify-info">
+                                        <p>Account <strong>"100019841343681"</strong> logged in</p>
+                                        <span class="notify-time">32 mins ago</span>
+                                    </div>
+                                </li>
+                                <li class="notification-item">
+                                    <div class="notify-icon notify-purple"><i class="fa-solid fa-users"></i></div>
+                                    <div class="notify-info">
+                                        <p>Group <strong>"CSB SPORT"</strong> created</p>
+                                        <span class="notify-time">1 hour ago</span>
+                                    </div>
+                                </li>
+                                <li class="notification-item">
+                                    <div class="notify-icon notify-red"><i class="fa-solid fa-shield-halved"></i></div>
+                                    <div class="notify-info">
+                                        <p>Security settings updated</p>
+                                        <span class="notify-time">2 hours ago</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="dropdown-footer">
+                                <a href="#">View all notifications</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fullscreen Button -->
+                    <button class="icon-btn" id="fullscreen-btn" aria-label="Toggle Fullscreen">
+                        <i class="fa-solid fa-expand"></i>
+                    </button>
+
+
+                    <div class="profile-container">
+                        <div class="profile-trigger" id="profile-trigger">
+                            <div class="avatar-wrapper">
+                                <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=admin&backgroundColor=b6e3f4"
+                                    alt="admin avatar" class="avatar">
+                            </div>
+                            <div class="user-details">
+                                <span class="username">admin</span>
+                                <span class="user-role">Administrator</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-down profile-chevron"></i>
+                        </div>
+                        <!-- Profile Dropdown -->
+                        <div class="dropdown-menu profile-dropdown" id="profile-dropdown">
+                            <ul class="profile-links">
+                                <li><a href="#"><i class="fa-regular fa-user"></i> My Profile</a></li>
+                                <li><a href="#"><i class="fa-solid fa-sliders"></i> Account Settings</a></li>
+                                <li><a href="#"><i class="fa-solid fa-shield-halved"></i> Security settings</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#" class="logout-link"><i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                        Log Out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-body">
+                <!-- Statistic Cards Row -->
+                <div class="stats-grid">
+                    <!-- Total Pages Card -->
+                    <div class="stat-card card-blue">
+                        <div class="card-content">
+                            <span class="card-title">Total Pages</span>
+                            <h3 class="card-number">103</h3>
+                            <span class="card-growth growth-up">
+                                <i class="fa-solid fa-arrow-trend-up"></i> 12.5% <span class="growth-label">from last
+                                    month</span>
+                            </span>
+                        </div>
+                        <div class="card-icon">
+                            <i class="fa-solid fa-file-invoice"></i>
+                        </div>
+                    </div>
+
+                    <!-- Total Accounts Card -->
+                    <div class="stat-card card-green">
+                        <div class="card-content">
+                            <span class="card-title">Total Accounts</span>
+                            <h3 class="card-number">256</h3>
+                            <span class="card-growth growth-up">
+                                <i class="fa-solid fa-arrow-trend-up"></i> 8.3% <span class="growth-label">from last
+                                    month</span>
+                            </span>
+                        </div>
+                        <div class="card-icon">
+                            <i class="fa-solid fa-user-gear"></i>
+                        </div>
+                    </div>
+
+                    <!-- Total Groups Card -->
+                    <div class="stat-card card-purple">
+                        <div class="card-content">
+                            <span class="card-title">Total Groups</span>
+                            <h3 class="card-number">57</h3>
+                            <span class="card-growth growth-up">
+                                <i class="fa-solid fa-arrow-trend-up"></i> 15.4% <span class="growth-label">from last
+                                    month</span>
+                            </span>
+                        </div>
+                        <div class="card-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+                    </div>
+
+                    <!-- Total Admins Card -->
+                    <div class="stat-card card-orange">
+                        <div class="card-content">
+                            <span class="card-title">Total Admins</span>
+                            <h3 class="card-number">312</h3>
+                            <span class="card-growth growth-up">
+                                <i class="fa-solid fa-arrow-trend-up"></i> 10.2% <span class="growth-label">from last
+                                    month</span>
+                            </span>
+                        </div>
+                        <div class="card-icon">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                    </div>
+
+                    <!-- Active Sessions Card -->
+                    <div class="stat-card card-red">
+                        <div class="card-content">
+                            <span class="card-title">Active Sessions</span>
+                            <h3 class="card-number">28</h3>
+                            <span class="card-growth growth-down">
+                                <i class="fa-solid fa-arrow-trend-down"></i> 3.6% <span class="growth-label">from last
+                                    hour</span>
+                            </span>
+                        </div>
+                        <div class="card-icon">
+                            <i class="fa-solid fa-desktop"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts & Activities Section -->
+                <div class="main-grid">
+                    <!-- Line Chart Column (Overview) -->
+                    <div class="grid-card overview-card">
+                        <div class="card-header">
+                            <h3>Overview</h3>
+                            <div class="filter-wrapper">
+                                <select class="dropdown-select" id="overview-filter">
+                                    <option value="7">Last 7 Days</option>
+                                    <option value="30">Last 30 Days</option>
+                                    <option value="90">Last 90 Days</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="overviewChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Doughnut Chart Column (Status Distribution) -->
+                    <div class="grid-card status-card">
+                        <div class="card-header">
+                            <h3>Status Distribution</h3>
+                        </div>
+                        <div class="status-chart-wrapper">
+                            <div class="doughnut-container">
+                                <canvas id="statusChart"></canvas>
+                                <div class="chart-center-text">
+                                    <span class="total-number">115</span>
+                                    <span class="total-label">Total</span>
+                                </div>
+                            </div>
+                            <ul class="status-legend">
+                                <li>
+                                    <span class="legend-color dot-green"></span>
+                                    <span class="legend-text">Green <span class="text-muted">(Good)</span></span>
+                                    <span class="legend-value">68 <span class="text-percentage">(59.1%)</span></span>
+                                </li>
+                                <li>
+                                    <span class="legend-color dot-yellow"></span>
+                                    <span class="legend-text">Yellow <span class="text-muted">(Warning)</span></span>
+                                    <span class="legend-value">25 <span class="text-percentage">(21.7%)</span></span>
+                                </li>
+                                <li>
+                                    <span class="legend-color dot-red"></span>
+                                    <span class="legend-text">Red <span class="text-muted">(Bad)</span></span>
+                                    <span class="legend-value">12 <span class="text-percentage">(10.4%)</span></span>
+                                </li>
+                                <li>
+                                    <span class="legend-color dot-gray"></span>
+                                    <span class="legend-text">Unknown</span>
+                                    <span class="legend-value">10 <span class="text-percentage">(8.7%)</span></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activities Column -->
+                    <div class="grid-card activity-card">
+                        <div class="card-header">
+                            <h3>Recent Activities</h3>
+                        </div>
+                        <div class="activity-wrapper overflow-y">
+                            <ul class="activity-timeline">
+                                <li class="activity-item">
+                                    <div class="activity-icon-container bg-blue">
+                                        <i class="fa-solid fa-file-invoice"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <p>New page <strong>"SENG Sport"</strong> added</p>
+                                        <span class="activity-time">2 minutes ago</span>
+                                    </div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-icon-container bg-green">
+                                        <i class="fa-solid fa-user-pen"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <p>Admin <strong>"Dara Thy"</strong> updated a page</p>
+                                        <span class="activity-time">15 minutes ago</span>
+                                    </div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-icon-container bg-gray">
+                                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <p>Account <strong>"100019841343681"</strong> logged in</p>
+                                        <span class="activity-time">32 minutes ago</span>
+                                    </div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-icon-container bg-purple">
+                                        <i class="fa-solid fa-users"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <p>Group <strong>"CSB SPORT"</strong> created</p>
+                                        <span class="activity-time">1 hour ago</span>
+                                    </div>
+                                </li>
+                                <li class="activity-item">
+                                    <div class="activity-icon-container bg-red">
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <p>Security settings updated</p>
+                                        <span class="activity-time">2 hours ago</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="view-all-link">View all activities</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Section (Tables & System Info) -->
+                <div class="bottom-grid">
+                    <!-- Top Pages Table -->
+                    <div class="grid-card bottom-card">
+                        <div class="card-header">
+                            <h3>Top Pages</h3>
+                        </div>
+                        <div class="table-container">
+                            <table class="data-table" id="pages-table">
+                                <thead>
+                                    <tr>
+                                        <th>Page Name</th>
+                                        <th>Followers</th>
+                                        <th>Status</th>
+                                        <th>Owner</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>SENG Sport</strong></td>
+                                        <td>220K</td>
+                                        <td><span class="badge-status status-good">Green (Good)</span></td>
+                                        <td>admin</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>CSB SPORT</strong></td>
+                                        <td>96K</td>
+                                        <td><span class="badge-status status-good">Green (Good)</span></td>
+                                        <td>CSB Team</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Top Action Filma 2026</strong></td>
+                                        <td>17K</td>
+                                        <td><span class="badge-status status-good">Green (Good)</span></td>
+                                        <td>admin</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>HDMI</strong></td>
+                                        <td>59K</td>
+                                        <td><span class="badge-status status-warning">Yellow (Warning)</span></td>
+                                        <td>admin</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>R-9999</strong></td>
+                                        <td>62K</td>
+                                        <td><span class="badge-status status-warning">Yellow (Warning)</span></td>
+                                        <td>admin</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="view-all-link">View all pages</a>
+                        </div>
+                    </div>
+
+                    <!-- Top Admins Table -->
+                    <div class="grid-card bottom-card">
+                        <div class="card-header">
+                            <h3>Top Admins</h3>
+                        </div>
+                        <div class="table-container">
+                            <table class="data-table" id="admins-table">
+                                <thead>
+                                    <tr>
+                                        <th>Admin Name</th>
+                                        <th>Pages</th>
+                                        <th>Groups</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>SENG</strong></td>
+                                        <td>12</td>
+                                        <td>5</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Dara Thy</strong></td>
+                                        <td>8</td>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Pich Sreynich</strong></td>
+                                        <td>7</td>
+                                        <td>2</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Chan Dara</strong></td>
+                                        <td>6</td>
+                                        <td>4</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Rithy Kh</strong></td>
+                                        <td>5</td>
+                                        <td>1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="view-all-link">View all admins</a>
+                        </div>
+                    </div>
+
+                    <!-- System Information Card -->
+                    <div class="grid-card bottom-card">
+                        <div class="card-header">
+                            <h3>System Information</h3>
+                        </div>
+                        <div class="system-info-container">
+                            <ul class="system-info-list">
+                                <li>
+                                    <span class="info-label"><i class="fa-solid fa-cube"></i> Application</span>
+                                    <span class="info-value">Social Engine</span>
+                                </li>
+                                <li>
+                                    <span class="info-label"><i class="fa-solid fa-tag"></i> Version</span>
+                                    <span class="info-value">1.0.0</span>
+                                </li>
+                                <li>
+                                    <span class="info-label"><i class="fa-solid fa-database"></i> Database</span>
+                                    <span class="info-value text-green">Connected</span>
+                                </li>
+                                <li>
+                                    <span class="info-label"><i class="fa-solid fa-server"></i> Server</span>
+                                    <span class="info-value">Localhost</span>
+                                </li>
+                                <li>
+                                    <span class="info-label"><i class="fa-regular fa-clock"></i> Last Backup</span>
+                                    <span class="info-value">6/25/2026 11:30 PM</span>
+                                </li>
+                                <li>
+                                    <span class="info-label"><i class="fa-solid fa-hourglass-start"></i> Uptime</span>
+                                    <span class="info-value">2d 14h 32m</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-footer">
+                            <a href="#" class="view-all-link">View system info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-left">
+                    <p>© 2026 Social Engine. All rights reserved.</p>
+                </div>
+                <div class="footer-right">
+
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Script imports -->
+    <script src="../JS/chart.js"></script>
+    <script src="../JS/script.js"></script>
+</body>
+
+</html>
